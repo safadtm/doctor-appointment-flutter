@@ -5,16 +5,15 @@ import 'package:flutter/material.dart';
 
 import '../res/lists.dart';
 import '../widgets/text_widget.dart';
-import 'Chat.dart';
 
-class SeeAll extends StatefulWidget {
-  const SeeAll({super.key});
+class SeeAllScreen extends StatefulWidget {
+  const SeeAllScreen({super.key});
 
   @override
-  State<SeeAll> createState() => _SeeAllState();
+  State<SeeAllScreen> createState() => _SeeAllScreenState();
 }
 
-class _SeeAllState extends State<SeeAll> {
+class _SeeAllScreenState extends State<SeeAllScreen> {
   var opacity = 0.0;
   bool position = false;
   @override
@@ -112,7 +111,7 @@ class _SeeAllState extends State<SeeAll> {
                             await Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => Chat(
+                                builder: (context) => ChatScreen(
                                   image: images[index],
                                   name: names[index],
                                   specialist: spacilality[index],

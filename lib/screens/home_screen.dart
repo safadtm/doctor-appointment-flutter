@@ -297,7 +297,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 const Duration(milliseconds: 500));
                             await Navigator.push(context, MaterialPageRoute(
                               builder: (context) {
-                                return SeeAll();
+                                return const SeeAllScreen();
                               },
                             ));
 
