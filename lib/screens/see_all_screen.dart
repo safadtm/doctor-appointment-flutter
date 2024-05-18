@@ -55,11 +55,12 @@ class _SeeAllScreenState extends State<SeeAllScreen> {
               child: upperRow(),
             ),
             AnimatedPositioned(
-                top: position ? 60 : 120,
-                right: 20,
-                left: 20,
-                duration: const Duration(milliseconds: 300),
-                child: findDoctor()),
+              top: position ? 60 : 120,
+              right: 20,
+              left: 20,
+              duration: const Duration(milliseconds: 300),
+              child: findDoctor(),
+            ),
             AnimatedPositioned(
                 top: position ? 390 : 450,
                 right: 20,

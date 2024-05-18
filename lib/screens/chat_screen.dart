@@ -82,14 +82,18 @@ class _ChatScreenState extends State<ChatScreen> {
                                   InkWell(
                                     onTap: () {
                                       animator();
-                                      Timer(const Duration(milliseconds: 500),
-                                          () {
-                                        Navigator.pushReplacement(
+                                      Timer(
+                                        const Duration(milliseconds: 500),
+                                        () {
+                                          Navigator.pushReplacement(
                                             context,
                                             MaterialPageRoute(
-                                              builder: (context) =>const SeeAllScreen(),
-                                            ));
-                                      });
+                                              builder: (context) =>
+                                                  const SeeAllScreen(),
+                                            ),
+                                          );
+                                        },
+                                      );
                                     },
                                     child: const Icon(
                                       Icons.arrow_back_ios_new_sharp,
