@@ -1,25 +1,23 @@
 import 'dart:async';
+import 'package:doctor_appointment_flutter/screens/profile_screen.dart';
 import 'package:doctor_appointment_flutter/screens/see_all_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:hospital/screens/SeeAll.dart';
-import 'package:hospital/widgets/text_widget.dart';
 import '../widgets/text_widget.dart';
-import 'Profile.dart';
 
-class Chat extends StatefulWidget {
+class ChatScreen extends StatefulWidget {
   final AssetImage image;
   final String name;
   final String specialist;
-  const Chat(
+  const ChatScreen(
       {super.key,
       required this.image,
       required this.name,
       required this.specialist});
   @override
-  State<Chat> createState() => _ChatState();
+  State<ChatScreen> createState() => _ChatScreenState();
 }
 
-class _ChatState extends State<Chat> {
+class _ChatScreenState extends State<ChatScreen> {
   late Size size;
   var animate = false;
   var opacity = 0.0;
@@ -37,7 +35,6 @@ class _ChatState extends State<Chat> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Future.delayed(Duration.zero, () {
       animator();
@@ -107,7 +104,7 @@ class _ChatState extends State<Chat> {
                                       await Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                          builder: (context) => Profile(
+                                          builder: (context) => ProfileScreen(
                                             image: widget.image,
                                             name: widget.name,
                                             speciality: widget.specialist,

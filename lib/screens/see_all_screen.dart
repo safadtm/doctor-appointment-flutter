@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 
 import '../res/lists.dart';
 import '../widgets/text_widget.dart';
+import 'chat_screen.dart';
 
 class SeeAllScreen extends StatefulWidget {
   const SeeAllScreen({super.key});
