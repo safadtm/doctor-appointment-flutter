@@ -2,24 +2,23 @@ import 'dart:async';
 
 import 'package:doctor_appointment_flutter/screens/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:hospital/screens/Home.dart';
-import 'package:hospital/widgets/text_widget.dart';
-import 'package:hospital/res/lists.dart';
 
+import '../res/lists.dart';
 import '../widgets/text_widget.dart';
 import 'Chat.dart';
 
 class SeeAll extends StatefulWidget {
+  const SeeAll({super.key});
+
   @override
   State<SeeAll> createState() => _SeeAllState();
 }
 
 class _SeeAllState extends State<SeeAll> {
   var opacity = 0.0;
-  bool position=false;
+  bool position = false;
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     Future.delayed(Duration.zero, () {
       animator();
@@ -29,14 +28,13 @@ class _SeeAllState extends State<SeeAll> {
   animator() {
     if (opacity == 1) {
       opacity = 0;
-      position=false;
+      position = false;
     } else {
       opacity = 1;
-      position=true;
+      position = true;
     }
     setState(() {});
   }
-  
 
   @override
   Widget build(BuildContext context) {
@@ -44,13 +42,13 @@ class _SeeAllState extends State<SeeAll> {
     return Scaffold(
       body: Container(
         color: Colors.white,
-        padding: EdgeInsets.only(top: 70),
+        padding: const EdgeInsets.only(top: 70),
         height: size.height,
         width: size.width,
         child: Stack(
           children: [
             AnimatedPositioned(
-              duration: Duration(milliseconds: 400),
+              duration: const Duration(milliseconds: 400),
               top: position ? 1 : 50,
               left: 20,
               right: 20,
@@ -60,16 +58,16 @@ class _SeeAllState extends State<SeeAll> {
                 top: position ? 60 : 120,
                 right: 20,
                 left: 20,
-                duration: Duration(milliseconds: 300),
+                duration: const Duration(milliseconds: 300),
                 child: findDoctor()),
             AnimatedPositioned(
                 top: position ? 390 : 450,
                 right: 20,
                 left: 20,
-                duration: Duration(milliseconds: 400),
+                duration: const Duration(milliseconds: 400),
                 child: AnimatedOpacity(
                   opacity: opacity,
-                  duration: Duration(milliseconds: 400),
+                  duration: const Duration(milliseconds: 400),
                   child: Container(
                     width: size.width,
                     child: Row(
@@ -97,7 +95,7 @@ class _SeeAllState extends State<SeeAll> {
                 top: position ? 430 : 500,
                 left: 20,
                 right: 20,
-                duration: Duration(milliseconds: 500),
+                duration: const Duration(milliseconds: 500),
                 child: AnimatedOpacity(
                     duration: const Duration(milliseconds: 500),
                     opacity: opacity,
@@ -105,17 +103,22 @@ class _SeeAllState extends State<SeeAll> {
                       height: 350,
                       child: ListView.builder(
                         itemCount: 7,
-                        itemBuilder:
-                            (context, index) => InkWell(
+                        itemBuilder: (context, index) => InkWell(
                           onTap: () async {
                             animator();
                             await Future.delayed(
-                                const Duration(milliseconds: 500));
+                              const Duration(milliseconds: 500),
+                            );
                             await Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => Chat(image: images[index],name: names[index],specialist: spacilality[index]),
-                                ));
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Chat(
+                                  image: images[index],
+                                  name: names[index],
+                                  specialist: spacilality[index],
+                                ),
+                              ),
+                            );
                             animator();
                           },
                           child: Card(
@@ -128,7 +131,9 @@ class _SeeAllState extends State<SeeAll> {
                               width: double.infinity,
                               child: Row(
                                 children: [
-                                  const SizedBox(width: 20,),
+                                  const SizedBox(
+                                    width: 20,
+                                  ),
                                   CircleAvatar(
                                     radius: 30,
                                     backgroundImage: images[index],
@@ -138,8 +143,7 @@ class _SeeAllState extends State<SeeAll> {
                                     width: 10,
                                   ),
                                   Column(
-                                    mainAxisAlignment:
-                                    MainAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
                                       TextWidget(
                                         names[index],
@@ -163,7 +167,7 @@ class _SeeAllState extends State<SeeAll> {
                                       ),
                                       const Row(
                                         mainAxisAlignment:
-                                        MainAxisAlignment.center,
+                                            MainAxisAlignment.center,
                                         children: [
                                           Icon(
                                             Icons.star,
@@ -194,27 +198,28 @@ class _SeeAllState extends State<SeeAll> {
                                     Icons.navigation_sharp,
                                     color: Colors.blue,
                                   ),
-                                  const SizedBox(width: 20,),
+                                  const SizedBox(
+                                    width: 20,
+                                  ),
                                 ],
                               ),
                             ),
                           ),
-                        ),),
-                    )
-                )),
+                        ),
+                      ),
+                    ))),
           ],
         ),
       ),
     );
   }
 
-  Widget findDoctor(){
+  Widget findDoctor() {
     return AnimatedOpacity(
       duration: const Duration(milliseconds: 400),
       opacity: opacity,
       child: Card(
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         child: Container(
           height: 300,
           width: MediaQuery.of(context).size.width,
@@ -244,8 +249,7 @@ class _SeeAllState extends State<SeeAll> {
                         child: Center(
                           child: Image(
                             fit: BoxFit.fill,
-                            image:
-                            AssetImage('assets/images/p1.png'),
+                            image: AssetImage('assets/images/p1.png'),
                           ),
                         ),
                       ),
@@ -253,8 +257,7 @@ class _SeeAllState extends State<SeeAll> {
                         width: 10,
                       ),
                       Column(
-                        crossAxisAlignment:
-                        CrossAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           const SizedBox(
                             height: 10,
@@ -270,10 +273,8 @@ class _SeeAllState extends State<SeeAll> {
                             height: 5,
                           ),
                           Column(
-                            crossAxisAlignment:
-                            CrossAxisAlignment.start,
-                            mainAxisAlignment:
-                            MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               TextWidget(
                                 "Use this feature to find a doctor\nclosest to you",
@@ -300,8 +301,7 @@ class _SeeAllState extends State<SeeAll> {
                       decoration: const BoxDecoration(
                           image: DecorationImage(
                               fit: BoxFit.fill,
-                              image: AssetImage(
-                                  'assets/images/map.png'))),
+                              image: AssetImage('assets/images/map.png'))),
                     ),
                   )),
               const Positioned(
@@ -318,7 +318,8 @@ class _SeeAllState extends State<SeeAll> {
       ),
     );
   }
-  Widget upperRow(){
+
+  Widget upperRow() {
     return AnimatedOpacity(
       opacity: opacity,
       duration: const Duration(milliseconds: 400),
@@ -352,5 +353,4 @@ class _SeeAllState extends State<SeeAll> {
       ),
     );
   }
-
 }
