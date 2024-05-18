@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import '../res/lists.dart';
 import '../widgets/text_widget.dart';
+import 'oppointment_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   final AssetImage image;
@@ -418,7 +419,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       await Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Oppointment(0),
+                          builder: (context) => OppoinmentScreen(0),
                         ),
                       );
                       animator();
